@@ -7,15 +7,23 @@
 require 'calculator'
 
 describe Calculator do
-    it 'use sum method for 2 numbers' do 
-        calc = Calculator.new 
-        result = calc.sum(5,7)
-        expect(result).to eq(12) # resultado esperado pelo teste
-    end 
+    context '#sum' do
+        it 'with positive numbers' do 
+            calc = Calculator.new # setup
+            result = calc.sum(5,7) # exercise
+            expect(result).to eq(12) # verifiy
+        end 
 
-    specify 'use sum method for 2 numbers with negative numbers' do 
-        calc = Calculator.new 
-        result = calc.sum(-5,7)
-        expect(result).to eq(2) # resultado esperado pelo teste
-    end 
+        it 'with negative numbers' do 
+            calc = Calculator.new 
+            result = calc.sum(-5,-7)
+            expect(result).to eq(-12) # resultado esperado pelo teste
+        end
+        
+        it 'with negative and positive numbers' do 
+            calc = Calculator.new # setup
+            result = calc.sum(-5,7) # exercise
+            expect(result).to eq(2) # verifiy
+        end 
+    end
 end
