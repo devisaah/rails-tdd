@@ -6,24 +6,24 @@
  
 require 'calculator'
 
-describe Calculator do
+describe Calculator do # or 'Classe Calculadora'
+
+    subject(:calc) { described_class.new() } # or Calculator.new()
+
     context '#sum' do
         it 'with positive numbers' do 
-            calc = Calculator.new # setup
-            result = calc.sum(5,7) # exercise
-            expect(result).to eq(12) # verifiy
+            result = subject.sum(5,7) 
+            expect(result).to eq(12)
         end 
 
         it 'with negative numbers' do 
-            calc = Calculator.new 
             result = calc.sum(-5,-7)
-            expect(result).to eq(-12) # resultado esperado pelo teste
+            expect(result).to eq(-12)
         end
         
         it 'with negative and positive numbers' do 
-            calc = Calculator.new # setup
-            result = calc.sum(-5,7) # exercise
-            expect(result).to eq(2) # verifiy
+            result = calc.sum(-5,7)
+            expect(result).to eq(2)
         end 
     end
 end
